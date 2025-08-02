@@ -56,5 +56,4 @@ def process_color_spaces(input_path: str) -> None:
         raise
 
 if __name__ == "__main__":
-    # Replace 'input.jpg' with your actual input image path
-    process_color_spaces('input.jpg')
+    main()
