@@ -5,7 +5,7 @@ import os
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
-from typing import Tuple
+from typing import Tuple, Optional
 
 class ImageProcessor:
     @staticmethod
@@ -61,7 +61,7 @@ class ImageProcessor:
         plt.show()
 
     @staticmethod
-    def plot_histogram(gray_image: np.ndarray, save_path: str = None) -> None:
+    def plot_histogram(gray_image: np.ndarray, save_path: Optional[str] = None) -> None:
         """
         Plot and optionally save histogram of a grayscale image.
         
@@ -70,7 +70,7 @@ class ImageProcessor:
             save_path (str, optional): Path to save the histogram plot
         """
         plt.figure(figsize=(10, 5))
-        plt.hist(gray_image.ravel(), 256, [0, 256])
+        plt.hist(gray_image.ravel(), 256, (0, 256))
         plt.title('Grayscale Histogram')
         plt.xlabel('Pixel Value')
         plt.ylabel('Frequency')
