@@ -138,6 +138,7 @@ def main() -> None:
             print("\nInvalid choice. Please try again.")
             input("Press Enter to continue...")
 
+
 if __name__ == "__main__":
     try:
         # Ensure required directories exist
