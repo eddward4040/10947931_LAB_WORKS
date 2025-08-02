@@ -5,12 +5,17 @@ import os
 import cv2
 from image_utils import ImageProcessor
 
-def main():
+def process_color_spaces(input_path: str) -> None:
+    """
+    Convert an image to different color spaces and plot histogram.
+    
+    Args:
+        input_path (str): Path to the input image
+    """
     # Initialize image processor
     processor = ImageProcessor()
     
     # Define paths
-    input_path = os.path.join('images', 'photo.jpg')
     output_path_gray = os.path.join('output', 'photo_grayscale.jpg')
     output_path_hsv = os.path.join('output', 'photo_hsv.jpg')
     output_path_lab = os.path.join('output', 'photo_lab.jpg')
@@ -33,6 +38,9 @@ def main():
             'LAB': lab_image
         })
         
+        # Ensure output directory exists
+        os.makedirs(os.path.dirname(output_path_gray), exist_ok=True)
+        
         # Save converted images
         processor.save_image(gray_image, output_path_gray)
         processor.save_image(hsv_image, output_path_hsv)
@@ -45,6 +53,8 @@ def main():
         
     except Exception as e:
         print(f"An error occurred: {str(e)}")
+        raise
 
 if __name__ == "__main__":
-    main()
+    # Replace 'input.jpg' with your actual input image path
+    process_color_spaces('input.jpg')

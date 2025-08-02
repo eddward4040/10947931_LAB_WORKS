@@ -30,6 +30,7 @@ def convert_to_grayscale(input_path: str, output_path: str) -> None:
         })
         
         # Save the grayscale image
+        os.makedirs(os.path.dirname(output_path), exist_ok=True)
         processor.save_image(gray_image, output_path)
         print(f"Grayscale image saved successfully at: {output_path}")
     except Exception as e:
