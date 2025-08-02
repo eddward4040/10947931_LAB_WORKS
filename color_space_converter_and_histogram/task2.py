@@ -55,5 +55,12 @@ def process_color_spaces(input_path: str) -> None:
         print(f"An error occurred: {str(e)}")
         raise
 
+def main():
+    """
+    Main function to run Task 2 with the default input image.
+    """
+    input_path = os.path.join('images', 'photo.jpg')
+    process_color_spaces(input_path)
+
 if __name__ == "__main__":
     main()
