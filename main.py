@@ -68,7 +68,8 @@ def run_task1() -> None:
         print("Task 1 completed successfully!")
     except Exception as e:
         print(f"Error in Task 1: {str(e)}")
-    input("\nPress Enter to continue...")
+    if not is_running_all:
+        input("\nPress Enter to continue...")
 
 def run_task2() -> None:
     """Execute Task 2: Color space conversion and histogram."""
@@ -79,7 +80,8 @@ def run_task2() -> None:
         print("Task 2 completed successfully!")
     except Exception as e:
         print(f"Error in Task 2: {str(e)}")
-    input("\nPress Enter to continue...")
+    if not is_running_all:
+        input("\nPress Enter to continue...")
 
 def run_task3() -> None:
     """Execute Task 3: Binary thresholding example."""
@@ -93,17 +95,24 @@ def run_task3() -> None:
     print(f"Result after thresholding: {result}")
     print("\nExplanation:")
     print(f"Since {pixel_value} > {threshold}, the output is {result}")
-    input("\nPress Enter to continue...")
+    if not is_running_all:
+        input("\nPress Enter to continue...")
 
 def run_all_tasks() -> None:
     """Execute all tasks in sequence."""
+    global is_running_all
+    is_running_all = True
     print("\nRunning all tasks...")
     run_task1()
     run_task2()
     run_task3()
+    is_running_all = False
+    print("\nAll tasks completed!")
 
 def main() -> None:
     """Main program loop."""
+    global is_running_all
+    is_running_all = False
     while True:
         clear_screen()
         print_menu()
