@@ -158,6 +158,7 @@ if __name__ == "__main__":
             print("\nPlease ensure the image file is not corrupted and is in a supported format (JPG, JPEG, PNG, BMP).")
             sys.exit(1)
             
+            
         main()
     except KeyboardInterrupt:
         print("\nProgram terminated by user.")
